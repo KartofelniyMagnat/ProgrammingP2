@@ -1,0 +1,5 @@
+a = int(input())
+b = input()
+nums = list(map(int, b.split()))
+nums.sort(reverse=True)
+print(" ".join(map(str, nums)))
