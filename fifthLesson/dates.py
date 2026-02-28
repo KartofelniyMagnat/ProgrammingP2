@@ -1,14 +1,16 @@
-"""
-A date in Python is not a data type of its own, but we can import a module named datetime to work with dates as date objects.
+from datetime import datetime, date, timedelta
 
-The datetime() class requires three parameters to create a date: year, month, day.
+today = date.today()
+now = datetime.now()
 
-The datetime object has a method for formatting date objects into readable strings.
+print(today - timedelta(days=5))
 
-The method is called strftime(), and takes one parameter, format, to specify the format of the returned string:
-"""
+print(today - timedelta(days=1))
+print(today)
+print(today + timedelta(days=1))
 
-import datetime
+print(now.replace(microsecond=0))
 
-x = datetime.datetime.now()
-print(x)
+d1 = datetime(2024, 1, 1)
+d2 = datetime(2024, 3, 15)
+print((d2 - d1).total_seconds())

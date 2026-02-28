@@ -7,17 +7,19 @@ If you have a Python object, you can convert it into a JSON string by using the 
 """
 import json
 
-x = {
-    "name": "John",
-    "age": 30,
-    "married": True,
-    "divorced": False,
-    "children": ("Ann","Billy"),
-    "pets": None,
-    "cars": [
-    {"model": "BMW 230", "mpg": 27.5},
-    {"model": "Ford Edge", "mpg": 24.1}
-    ]
-}
+with open("sample-data.json") as f:
+    data = json.load(f)
 
-print(x["age"])
+print("Interface Status")
+print("=" * 80)
+print(f"{'DN':<50} {'Description':<20}  {'Speed':>7}  {'MTU':>6}")
+print(f"{'-' * 50} {'-' * 20}  {'-' * 6}  {'-' * 6}")
+
+for item in data["imdata"]:
+    attrs = item["l1PhysIf"]["attributes"]
+    dn = attrs["dn"]
+    descr = attrs["descr"]
+    speed = attrs["speed"]
+    mtu = attrs["mtu"]
+    print(f"{dn:<50} {descr:<20}  {speed:>7}  {mtu:>6}")
+
