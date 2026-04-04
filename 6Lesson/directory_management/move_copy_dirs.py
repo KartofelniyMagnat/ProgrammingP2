@@ -13,10 +13,8 @@ with open("practice/folder1/example.txt", "w", encoding="utf-8") as f:
 
     f.write("This is a sample file.")
 
-# Copy file
 shutil.copy("practice/folder1/example.txt", "practice/folder2/example_copy.txt")
 print("File copied.")
 
-# Move file
 shutil.move("practice/folder1/example.txt", "practice/folder2/example_moved.txt")
 print("File moved.")
